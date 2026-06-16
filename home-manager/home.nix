@@ -145,10 +145,11 @@ in
 	userEmail = "calebjoshuaarmojallas@gmail.com";
 	};
 
+  # Make sure to install ambxst first so this will work
   programs.kitty = {
     enable = true;
     extraConfig = ''
-     try include ~/.cache/ambxst/kitty.conf
+      include ~/.cache/ambxst/kitty.conf
     '';
   };
 
