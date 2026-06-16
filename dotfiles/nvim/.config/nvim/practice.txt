@@ -1,0 +1,73 @@
+practicing vim
+give me some more practice problems
+I want to get better at vim
+practice makes perfect
+keep practicing every 10/19/2025
+vim is a powerful text editor
+
+give some on vim
+how to  vim effectively
+practice
+more vim practice
+practice problems for vim users
+
+
+823 * 19 = 15637
+
+log.range(1)
+log.range(2)
+log.range(3)
+log.range(4)
+log.range(5)
+
+
+if (condition) {
+    doSomething();
+} else {
+    doSomethingElse();
+}
+
+vim default commands are:
+i - insert mode
+v - visual mode
+esc - normal mode
+:w - save file
+:q - quit
+:wq - save and quit
+dd - delete line
+yy - copy line
+p - paste
+u - undo
+Ctrl + r - redo
+/ - search
+:n - next search result
+:N - previous search result
+:%s/old/new/g - replace all occurrences of 'old' with 'new'
+gg - go to the beginning of the file
+G - go to the end of the file
+0 - go to the beginning of the line
+$ - go to the end of the line 
+:set number - show line numbers
+:set nonumber - hide line numbers
+:set syntax=on - enable syntax highlighting
+:set syntax=off - disable syntax highlighting
+:set tabstop=4 - set tab width to 4 spaceshj
+:set expandtab - use spaces instead of tabs
+:set noexpandtab - use tabs instead of spaces
+:%y+ - copy entire file to clipboard
+:!command - run a shell command
+:help keyword - get help on 'keyword'
+
+jump commands:
+} - jump to next paragraph
+{ - jump to previous paragraph
+]] - jump to next section
+[[ - jump to previous section
+* - jump to next occurrence of word under cursor
+# - jump to previous occurrence of word under cursor
+
+:marks - list all marks
+m{a-z} - set mark 'a-z' at cursor position
+`{a-z} - jump to mark 'a-z'
+ctrl o - jump to older cursor position
+ctrl i - jump to newer cursor position

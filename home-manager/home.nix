@@ -38,6 +38,7 @@ in
   xdg-user-dirs
   zoxide
   fnm
+  lazygit
 
 
     # # Adds the 'hello' command to your environment. It prints a friendly
@@ -61,6 +62,14 @@ in
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+
+      ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/hypr/.config/hypr";
+      ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/nvim/.config/nvim";
+      ".config/fish".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/fish/.config/fish";
+      ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/tmux/.config/tmux";
+      ".config/cava".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/cava";
+      ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/fastfetch";
+      ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/starship.toml";
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.

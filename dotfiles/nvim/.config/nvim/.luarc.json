@@ -1,0 +1,15 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "opts",
+        "local",
+        "⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀"
+    ],
+    "diagnostics.disable": [
+        "deprecated",
+        "missing-fields",
+        "need-check-nil"
+    ],
+    "runtime.unicodeName": true
+}

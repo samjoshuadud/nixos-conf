@@ -1,0 +1,162 @@
+
+
+Neovim Keybindings Guide
+
+Welcome! This guide explains the keybindings in your Neovim configuration to help you get started with navigation, code editing, and managing files effectively.
+
+---
+
+General Settings
+- Leader Key: Space - Press this key followed by others for quick access to various commands.
+- Line Numbers: Absolute line numbers are enabled for easier navigation.
+
+---
+
+File and Window Navigation
+- Toggle Autocompletion:
+  - <leader>ac: Turns autocompletion on or off.
+
+- Telescope File Search:
+  - <C-p>: Opens Telescope to search for files in the current project.
+  - <leader>fg: Opens Telescope for live search within file contents (live grep).
+
+- Neo-tree:
+  - <Shift + H>: Toggle hidden files visibility in the file tree.
+
+---
+
+Window Resizing
+- Adjust Window Height:
+  - <Ctrl + Shift + Up>: Decrease the height of the current split.
+  - <Ctrl + Shift + Down>: Increase the height of the current split.
+
+- Adjust Window Width:
+  - <Ctrl + Shift + Left>: Decrease the width of the current split.
+  - <Ctrl + Shift + Right>: Increase the width of the current split.
+
+---
+
+Buffer Management
+Buffers are like open tabs or files within Neovim.
+- Navigate Buffers:
+  - <Ctrl + Alt + Right>: Go to the next buffer.
+  - <Ctrl + Alt + Left>: Go to the previous buffer.
+
+- Close Current Buffer:
+  - <Ctrl + Alt + Backspace>: Close the currently active buffer.
+
+---
+
+Code Editing and Navigation (LSP - Language Server Protocol)
+These shortcuts assist with code editing and navigation, especially useful for developers.
+- Hover Documentation:
+  - K: Shows information about the symbol under the cursor.
+
+- Go to Definition:
+  - gd: Jumps to the definition of the symbol under the cursor.
+
+- Code Actions:
+  - <leader>ca: Opens a list of suggested actions for the selected code (like quick fixes or refactoring options).
+
+- Format Code:
+  - <leader>gf: Formats the current file for cleaner, standardized code structure.
+
+---
+
+Tips for Beginners
+- Leader Key: <leader> is Space, so <leader>ca means pressing Space followed by ca.
+- Experiment: Try each of these keybindings to get a feel for their functionality.
+- Telescope Search: Use <C-p> or <leader>fg to quickly find files or content within them.
+
+---
+Git
+- We use git signs for checking the changes in our git work, use <leader>gp for checking preview_hunk
+- We can use git commands with neovim just enter :Git <commands> we use vim fugitive for this.
+
+-- 
+Autocompletion
+- This has tabnine and co pilot for completion, completion is 30 days trial only
+
+TMUX GUIDE:
+
+tmux leader key is:
+Ctrl + s
+
+the following are some basic commands:
+
+1. create a new window:
+Ctrl + s, c
+
+2. switch to the next window:
+Ctrl + s, n
+
+3. switch to the previous window:
+Ctrl + s, p
+
+4. switch to a specific window:
+Ctrl + s, 0-9
+
+5. split the window horizontally:
+Ctrl + s, "
+
+6. split the window vertically:
+Ctrl + s, %
+
+7. switch between panes:
+Ctrl + s, o
+
+8. close the current pane:
+Ctrl + s, x
+
+9. close the current window:
+Ctrl + s, &
+
+10. detach the current session:
+Ctrl + s, d
+
+11. list all sessions:
+tmux ls
+
+12. attach to a session:
+tmux a -t session_name
+
+13. kill a session:
+tmux kill-session -t session_name
+
+14. kill all sessions:
+tmux kill-server
+
+15. rename a session:
+Ctrl + s, $
+
+16. show all key bindings:
+Ctrl + s, ?
+
+17. rename a window
+Ctrl + s, ,
+
+18. run command
+Ctrl + s, :
+
+the following are some tmux commands : :
+
+1. create a new session:
+tmux new -s session_name
+
+2. create a new session with a specific window name:
+tmux new -s session_name -n window_name
+
+3. create a new session with a specific command:
+tmux new -s session_name -n window_name command
+
+4. create a new session with a specific command and detach:
+tmux new -s session_name -n window_name command -d 
+
+5. create a new session with a specific command and detach:
+tmux new -s session_name -n window_name command -d  -n window_name
+
+
+Tmux Resurrect
+- Tmux resurrect is a plugin that saves the tmux session and restores it when you open tmux again
+- To save the session use Ctrl + s, Ctrl + s
+- To restore the session use Ctrl + s, Ctrl + r
