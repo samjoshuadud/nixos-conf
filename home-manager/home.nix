@@ -39,6 +39,8 @@ in
   zoxide
   fnm
   lazygit
+  nodejs_22
+  tmuxifier
 
 
     # # Adds the 'hello' command to your environment. It prints a friendly
@@ -63,13 +65,13 @@ in
   # plain files is through 'home.file'.
   home.file = {
 
-      ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/hypr/.config/hypr";
-      ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/nvim/.config/nvim";
-      ".config/fish".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/fish/.config/fish";
-      ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/tmux/.config/tmux";
-      ".config/cava".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/cava";
-      ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/fastfetch";
-      ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos-config/dotfiles/starship.toml";
+      ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos/dotfiles/hypr/.config/hypr";
+      ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos/dotfiles/nvim/.config/nvim";
+      ".config/fish".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos/dotfiles/fish/.config/fish";
+      ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos/dotfiles/tmux/.config/tmux";
+      ".config/cava".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos/dotfiles/cava";
+      ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos/dotfiles/fastfetch";
+      ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "/home/punisher/nixos/dotfiles/starship.toml";
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -80,6 +82,27 @@ in
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # ''; 
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+  gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+  gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+
+    style = {
+      name="adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
   };
 
   # Home Manager can also manage your environment variables through
@@ -99,8 +122,21 @@ in
   #  /etc/profiles/per-user/punisher/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+    GTK_THEME = "Adwaita:dark";
+    QT_QPA_PLATFORM="wayland";
+    XDG_CURRENT_DESKTOP="hyprland";
     # EDITOR = "emacs";
   };
+
+  dconf.settings = {
+  "org/gnome/desktop/interface" = {
+    color-scheme = "prefer-dark";
+  };
+
+  "org/gnome/desktop/background" = {
+    picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
+  };
+};
 
   # Let Home Manager install and manage itself.
   programs.git = {
@@ -108,5 +144,13 @@ in
 	userName = "samjoshuadud";
 	userEmail = "calebjoshuaarmojallas@gmail.com";
 	};
+
+  programs.kitty = {
+    enable = true;
+    extraConfig = ''
+     try include ~/.cache/ambxst/kitty.conf
+    '';
+  };
+
   programs.home-manager.enable = true;
 }

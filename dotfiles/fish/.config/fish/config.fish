@@ -21,6 +21,8 @@ set -x TERM xterm-256color
 
 set -x PATH /opt/lampp/bin $PATH
 
+set -x NIXPKGS_ALLOW_UNFREE 1
+
 fnm env --use-on-cd | source
 
 pokemon-colorscripts --no-title --random --shiny
