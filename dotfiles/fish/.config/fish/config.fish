@@ -27,3 +27,4 @@ fnm env --use-on-cd | source
 
 pokemon-colorscripts --no-title --random --shiny
 
+direnv hook fish | source
