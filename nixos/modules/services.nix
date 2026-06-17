@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:  # ← was missing pkgs
 {
   services.blueman.enable = true;
   services.upower.enable = true;
