@@ -9,7 +9,3 @@ alias rm 'trash-put'
 alias cavax 'TERM=st-256color cava'
 
 alias v 'nvim'
-alias copilot-unilost 'copilot --resume=06ce1040-6619-4c35-ab51-e46e8c4e26a0'
-alias copilot-seated 'copilot --resume=dd5afa0a-8d85-4548-996b-a080dbfaab07'
-
-alias copilot-partyhwa 'copilot --resume=b69583c9-e137-4ef4-8a8f-94c3c270b558'
