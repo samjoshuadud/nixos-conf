@@ -10,9 +10,19 @@
       ./hardware-configuration.nix
     ];
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than-14d";
+  };
+
   # Bootloader.
 boot.loader.systemd-boot.enable=true;
 boot.loader.efi.canTouchEfiVariables = true;
+
+hardware.bluetooth.enable = true;
+services.blueman.enable = true;
+services.upower.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -52,13 +62,14 @@ boot.loader.efi.canTouchEfiVariables = true;
   users.users."punisher" = {
     isNormalUser = true;
     description = "punisher";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
+    shell = pkgs.fish;
   };
 hardware.firmware = [pkgs.linux-firmware];
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -77,15 +88,17 @@ wakatime-cli
   programs.fish.enable = true;
   services.spice-vdagentd.enable = true;
 
-  users.users.punisher = {
-    shell = pkgs.fish;
-};
+  programs.fish.interactiveShellInit = ''
+  ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+'';
+
+  virtualisation.docker.enable = true;
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
   xdg.portal = {
 	enable = true;
 	extraPortals = [pkgs.xdg-desktop-portal-hyprland];
 };
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
