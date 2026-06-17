@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, zenBrowser, ... }:
 
 let 
    dotfiles = "${config.home.homeDirectory}/.config/mydottfiles";
@@ -18,6 +18,7 @@ in
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "26.05"; # Please read the comment before changing.
+
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -41,7 +42,12 @@ in
   lazygit
   nodejs_22
   tmuxifier
-
+  cargo
+  go
+  alejandra
+  google-chrome
+  discord
+  zenBrowser.packages."${pkgs.system}".default
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
