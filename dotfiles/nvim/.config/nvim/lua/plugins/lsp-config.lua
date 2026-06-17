@@ -1,98 +1,69 @@
 return {
-  { -- Mason for downloading mason
+  { 
     "williamboman/mason.nvim",
     config = function()
       require("mason").setup()
     end
   },
 
-
-  { -- Mason Config for Downloading Language Server
+  {
     'williamboman/mason-lspconfig.nvim',
     lazy = false,
     opts = {
-      auto_install = true,
+      auto_install = false, 
     },
   },
 
-
-  { -- Communication between languange server and nvim
+  { 
     "neovim/nvim-lspconfig",
+    lazy=false,
     config = function()
+      local lspconfig = require("lspconfig")
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      
       capabilities.workspace = capabilities.workspace or {}
       capabilities.workspace.didChangeWatchedFiles = { dynamicRegistration = true }
-
       capabilities.workspace.workspaceFolders = true
 
-      -- local lspconfig = require("lspconfig")
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-      vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-      -- Lua Language Server
-      vim.lsp.config("lua_ls", {
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "LSP Hover" })
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to Definition" })
+      vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = "Code Action" })
+
+      -- Nix Language Server
+      lspconfig.nil_ls.setup({
         capabilities = capabilities,
         settings = {
-          Lua = {
-            runtime = {
-              version = "LuaJIT",
-            },
-            diagnostics = {
-              globals = { "vim" },
-            },
-            workspace = {
-              library = vim.api.nvim_get_runtime_file("", true),
-            },
-            telemetry = {
-              enable = false,
-            },
+          ["nil"] = {
+            formatting = { command = { "alejandra" } },
           },
         },
       })
 
-      -- C# Language Server
-      vim.lsp.config("csharp_ls", {
-        capabilities = capabilities
+      -- Lua Language Server
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            runtime = { version = "LuaJIT" },
+            diagnostics = { globals = { "vim" } },
+            workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+            telemetry = { enable = false },
+          },
+        },
       })
 
-      -- Python Language Server
-      -- vim.lsp.config("pylsp", {
-      --   capabilities = capabilities,
-      --   settings = {
-      --     pylsp = {
-      --       plugins = {
-      --         pylint = { enabled = true },
-      --         pyflakes = { enabled = false },
-      --         yapf = { enabled = true },
-      --       },
-      --     },
-      --   },
-      -- })
-      -- Tailwind CSS
-      vim.lsp.config("tailwindcss", {
-        capabilities = capabilities,
-      })
+      lspconfig.csharp_ls.setup({ capabilities = capabilities })
 
-      vim.lsp.config("basedpyright", {
-        capabilities = capabilities,
-      })
-      -- vim.lsp.config("pyright", {
-      --   capabilities = capabilities,
-      -- })
+      lspconfig.tailwindcss.setup({ capabilities = capabilities })
 
-      -- PHP
-      vim.lsp.config("phpactor", {
-        capabilities = capabilities,
-      })
+      lspconfig.basedpyright.setup({ capabilities = capabilities })
 
-      -- JavaScript / TypeScript
-      vim.lsp.config("ast_grep", {
-        capabilities = capabilities,
-      })
+      lspconfig.phpactor.setup({ capabilities = capabilities })
 
-      vim.lsp.config("ts_ls", {
-        capabilities = capabilities,
-      })
+      lspconfig.ts_ls.setup({ capabilities = capabilities })
+      
+      lspconfig.ast_grep.setup({ capabilities = capabilities })
+
     end,
   }
 }

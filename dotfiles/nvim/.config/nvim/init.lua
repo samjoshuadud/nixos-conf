@@ -27,13 +27,6 @@ end, { desc = "Toggle relative/absolute line numbers" })
 
 -- Importing plugins
 require("config.lazy")         -- Lazy loading config
-require("plugins.colorscheme") -- Colorscheme setup
-require("plugins.telescope")   -- Telescope setup
-require("plugins.treesitter")  -- Treesitter setup
-require("plugins.yazi")     -- Neo-tree setup
-require("plugins.lualine")     -- Lualine setup
-require("plugins.lsp-config")  -- LSP configuration
-require("plugins.none-ls")     -- None LSP plugin configuration
 -- Switch to different window
 vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
