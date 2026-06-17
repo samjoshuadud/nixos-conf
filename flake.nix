@@ -8,10 +8,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    antigravity-nix = {
+      url =  "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
 
-  outputs = { self, nixpkgs, home-manager, zen-browser, ... }: {
+  outputs = { self, nixpkgs, home-manager, zen-browser, antigravity-nix, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -22,7 +26,10 @@
         home-manager.nixosModules.home-manager  # ← fix here
         {
           home-manager.useGlobalPkgs = true;
-          home-manager.extraSpecialArgs = { zenBrowser = zen-browser; };
+          home-manager.extraSpecialArgs = { 
+            zenBrowser = zen-browser; 
+            antigravityNix = antigravity-nix;
+          };
           home-manager.users.punisher = import ./home-manager/home.nix;
         }
       ];
