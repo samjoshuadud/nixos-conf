@@ -1,4 +1,4 @@
-{ pkgs, antigravityNix, ... }:  # ← add this
+{ pkgs, antigravityNix, anyNixShell, nixs-search, ... }:
 {
   home.packages = with pkgs; [
     gcc
@@ -13,5 +13,11 @@
     alejandra
     gh
     antigravityNix.packages.x86_64-linux.google-antigravity-cli
+    (any-nix-shell.overrideAttrs (old: {
+      src = anyNixShell;
+    }))
+    nixs-search.packages.x86_64-linux.default
+    asciinema
+
   ];
 }
