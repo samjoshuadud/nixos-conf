@@ -27,4 +27,10 @@ fnm env --use-on-cd | source
 
 pokemon-colorscripts --no-title --random --shiny
 
+any-nix-shell fish --info-right | source
+# /home/punisher/Documents/any-nix-shell/bin/any-nix-shell fish | source
+
+
+
+
 direnv hook fish | source
