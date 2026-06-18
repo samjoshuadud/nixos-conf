@@ -9,5 +9,11 @@
     fish
     wakatime-cli
     trash-cli
+
+
+    xdg-desktop-portal
+    xdg-desktop-portal-wlr
+    pipewire
+    wireplumber
   ];
 }
