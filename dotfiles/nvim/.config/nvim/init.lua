@@ -27,11 +27,7 @@ end, { desc = "Toggle relative/absolute line numbers" })
 
 -- Importing plugins
 require("config.lazy")         -- Lazy loading config
--- Switch to different window
-vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
+-- Window/pane navigation handled by smart-splits.nvim
 -- Remove ~ in nvim
 vim.opt.fillchars = { eob = ' ' } -- Replace empty lines with space
 
