@@ -12,10 +12,14 @@
       url =  "github:jacopone/antigravity-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    any-nix-shell = {
+      url = "github:samjoshuadud/any-nix-shell";
+      flake = false;
+    };
+    nixs.url = "github:samjoshuadud/nixs";
   };
 
-  outputs = { self, nixpkgs, home-manager, zen-browser, antigravity-nix, ... }: {
+  outputs = { self, nixpkgs, home-manager, zen-browser, antigravity-nix, any-nix-shell, nixs, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -29,6 +33,8 @@
           home-manager.extraSpecialArgs = { 
             zenBrowser = zen-browser; 
             antigravityNix = antigravity-nix;
+            anyNixShell = any-nix-shell;
+            nixs-search = nixs;
           };
           home-manager.users.punisher = import ./home-manager/home.nix;
         }
