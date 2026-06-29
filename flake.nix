@@ -17,12 +17,15 @@
       flake = false;
     };
     nixs.url = "github:samjoshuadud/nixs";
+    ambxst.url = "github:samjoshuadud/Ambxst";
+    waylandar.url = "github:samjoshuadud/waylandar";
   };
 
-  outputs = { self, nixpkgs, home-manager, zen-browser, antigravity-nix, any-nix-shell, nixs, ... }: {
+  outputs = { self, nixpkgs, home-manager, zen-browser, antigravity-nix, any-nix-shell, nixs, ambxst, waylandar, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        ambxst.nixosModules.default
         {
         nixpkgs.config.allowUnfree = true;
         }
@@ -35,6 +38,7 @@
             antigravityNix = antigravity-nix;
             anyNixShell = any-nix-shell;
             nixs-search = nixs;
+            Waylandar = waylandar;
           };
           home-manager.users.punisher = import ./home-manager/home.nix;
         }

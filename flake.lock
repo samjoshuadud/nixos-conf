@@ -1,5 +1,24 @@
 {
   "nodes": {
+    "ambxst": {
+      "inputs": {
+        "axctl": "axctl",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1781957320,
+        "narHash": "sha256-xFwLvn2/VijWasorbAhb59qgO7IYMghdK9oVYCpnN1M=",
+        "owner": "samjoshuadud",
+        "repo": "Ambxst",
+        "rev": "21ee33b05393759da8e715f8870dc7e3596fb9bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "samjoshuadud",
+        "repo": "Ambxst",
+        "type": "github"
+      }
+    },
     "antigravity-nix": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -34,6 +53,27 @@
       "original": {
         "owner": "samjoshuadud",
         "repo": "any-nix-shell",
+        "type": "github"
+      }
+    },
+    "axctl": {
+      "inputs": {
+        "nixpkgs": [
+          "ambxst",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1779243005,
+        "narHash": "sha256-oDJEY0yeMUDFvCUTKW69/lzoVk6cuRPscT0myeKnvec=",
+        "owner": "Axenide",
+        "repo": "axctl",
+        "rev": "e8ac14221379cc5a5c8565c510123e1c0b7dff01",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Axenide",
+        "repo": "axctl",
         "type": "github"
       }
     },
@@ -116,6 +156,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1778869304,
+        "narHash": "sha256-30sZNZoA1cqF5JNO9fVX+wgiQYjB7HJqqJ4ztCDeBZE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d233902339c02a9c334e7e593de68855ad26c4cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1781074563,
         "narHash": "sha256-md8WlXOlfnIeHeOScMTTHFyf2d6iaTwPl2apR5EQ3P4=",
         "owner": "nixos",
@@ -130,7 +186,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1781577229,
         "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
@@ -146,7 +202,23 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1781577229,
+        "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1780243769,
         "narHash": "sha256-x5UQuRsH3MqI0U9afaXSNqzTPSeZlRLvFAav2Ux1pNw=",
@@ -165,7 +237,7 @@
     "nixs": {
       "inputs": {
         "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1781778050,
@@ -183,11 +255,13 @@
     },
     "root": {
       "inputs": {
+        "ambxst": "ambxst",
         "antigravity-nix": "antigravity-nix",
         "any-nix-shell": "any-nix-shell",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixs": "nixs",
+        "waylandar": "waylandar",
         "zen-browser": "zen-browser"
       }
     },
@@ -221,10 +295,28 @@
         "type": "github"
       }
     },
+    "waylandar": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1782753439,
+        "narHash": "sha256-604TAumPO6+Ru4yeQ6lBUFK3AuwRH0C3drcjm23UB5Y=",
+        "owner": "samjoshuadud",
+        "repo": "waylandar",
+        "rev": "878539d75f5143e769fd24eb1b9ee202bcbbec65",
+        "type": "github"
+      },
+      "original": {
+        "owner": "samjoshuadud",
+        "repo": "waylandar",
+        "type": "github"
+      }
+    },
     "zen-browser": {
       "inputs": {
         "home-manager": "home-manager_2",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1781638617,
