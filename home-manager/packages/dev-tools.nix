@@ -23,5 +23,12 @@
 
     slurp
     pulseaudio
+    uwsm
+
+    distrobox
+    github-copilot-cli
+
+    vscode
+    virt-manager
   ];
 }

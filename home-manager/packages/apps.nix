@@ -1,4 +1,4 @@
-{ pkgs, zenBrowser, antigravityNix, ... }:  # ← add these
+{ pkgs, zenBrowser, antigravityNix, Waylandar, ... }:  # ← add these
 {
   home.packages = with pkgs; [
     btop
@@ -22,5 +22,8 @@
     google-chrome
     discord
     zenBrowser.packages."${pkgs.system}".default
+    Waylandar.packages.x86_64-linux.default
+    wf-recorder
+    swayosd
   ];
 }
