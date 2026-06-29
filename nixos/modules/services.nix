@@ -29,5 +29,18 @@
 
   security.rtkit.enable = true;
   services.dbus.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+
+  security.pam.services.login.enableGnomeKeyring = true;
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %A, %B %d, %Y' --greeting 'Welcome to NixOS' --greet-align center --width 70 --window-padding 2 --container-padding 2 --prompt-padding 1 --asterisks --asterisks-char '•' --remember --remember-user-session --theme 'border=cyan;title=light_cyan;greet=light_blue;prompt=white;text=light_white;input=cyan;action=blue;button=light_cyan;time=light_blue' --cmd start-hyprland";
+        user = "greeter";
+      };
+    };
+  };
   
 }
