@@ -4,19 +4,25 @@
 
   i18n.defaultLocale = "en_PH.UTF-8";
   i18n.extraLocaleSettings = {
-    LC_ADDRESS        = "fil_PH";
-    LC_IDENTIFICATION = "fil_PH";
-    LC_MEASUREMENT    = "fil_PH";
-    LC_MONETARY       = "fil_PH";
-    LC_NAME           = "fil_PH";
-    LC_NUMERIC        = "fil_PH";
-    LC_PAPER          = "fil_PH";
-    LC_TELEPHONE      = "fil_PH";
-    LC_TIME           = "fil_PH";
-  };
+  LC_ADDRESS        = "en_PH.UTF-8";
+  LC_IDENTIFICATION = "en_PH.UTF-8";
+  LC_MEASUREMENT    = "en_PH.UTF-8";
+  LC_MONETARY       = "en_PH.UTF-8";
+  LC_NAME           = "en_PH.UTF-8";
+  LC_NUMERIC        = "en_PH.UTF-8";
+  LC_PAPER          = "en_PH.UTF-8";
+  LC_TELEPHONE      = "en_PH.UTF-8";
+  LC_TIME           = "en_PH.UTF-8";
+};
 
   services.xserver.xkb = {
     layout = "ph";
     variant = "";
   };
+
+  fonts = {
+    enableDefaultPackages = true;
+    fontDir.enable = true;
+  };
+
 }
