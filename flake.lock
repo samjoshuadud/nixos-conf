@@ -300,11 +300,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1782753439,
-        "narHash": "sha256-604TAumPO6+Ru4yeQ6lBUFK3AuwRH0C3drcjm23UB5Y=",
+        "lastModified": 1782755706,
+        "narHash": "sha256-EgDSeiJl1dbzdbMH1kLptfhIRHXYJ9V4DUcr4Op1HVA=",
         "owner": "samjoshuadud",
         "repo": "waylandar",
-        "rev": "878539d75f5143e769fd24eb1b9ee202bcbbec65",
+        "rev": "682581c1670ef9e786ce46941d62cc23d9e5b199",
         "type": "github"
       },
       "original": {
