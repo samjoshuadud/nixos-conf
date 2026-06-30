@@ -1,1 +1,10 @@
-tmux/.config/tmux/plugins/
+# Tmux plugins
+tmux/plugins/
+
+# Fish local state & temp files
+fish/fish_variables
+fish/fish_variables.*
+fish/fish_variables[A-Za-z0-9]*
+fish/fishd.*
+fish/fishd.tmp.*
+fish/:wqa

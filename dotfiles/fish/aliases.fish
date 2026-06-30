@@ -10,6 +10,7 @@ alias cavax 'TERM=st-256color cava'
 
 alias v 'nvim'
 
+
 alias home 'nvim ~/nixos/home-manager/home.nix'
 alias config 'nvim ~/nixos/nixos/configuration.nix'
 
