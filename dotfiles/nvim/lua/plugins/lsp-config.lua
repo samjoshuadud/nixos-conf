@@ -1,21 +1,5 @@
 return {
   {
-    "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end
-  },
-
-  {
-    'williamboman/mason-lspconfig.nvim',
-    lazy = false,
-    opts = {
-      auto_install = false,
-      -- Do NOT list servers here — NixOS manages them
-    },
-  },
-
-  {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
@@ -28,7 +12,6 @@ return {
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "LSP Hover" })
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to Definition" })
       vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = "Code Action" })
-
 
       vim.lsp.config('lua_ls', {
         capabilities = capabilities,
@@ -53,7 +36,6 @@ return {
       })
       vim.lsp.enable('nil_ls')
 
-      -- add these to your existing setup calls
       local servers = { 'gopls', 'bashls', 'dockerls', 'csharp_ls', 'html', 'cssls', 'jsonls', 'ts_ls', 'basedpyright' }
       for _, server in ipairs(servers) do
         vim.lsp.config(server, { capabilities = capabilities })

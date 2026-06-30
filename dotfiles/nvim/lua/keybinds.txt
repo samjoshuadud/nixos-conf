@@ -8,42 +8,22 @@ Welcome! This guide explains the keybindings in your Neovim configuration to hel
 
 General Settings
 - Leader Key: Space - Press this key followed by others for quick access to various commands.
-- Line Numbers: Absolute line numbers are enabled for easier navigation.
+- Line Numbers: Relative line numbers are enabled by default for easier navigation.
+- Toggle Line Numbers: <leader>n toggles between relative and absolute line numbering.
 
 ---
 
 File and Window Navigation
 - Toggle Autocompletion:
-  - <leader>ac: Turns autocompletion on or off.
+  - <leader>ac: Turns autocompletion and Copilot on or off.
 
-- Telescope File Search:
-  - <C-p>: Opens Telescope to search for files in the current project.
-  - <leader>fg: Opens Telescope for live search within file contents (live grep).
+- FZF File Search (fzf-lua):
+  - <C-p>: Opens fzf-lua to search for files in the current project.
+  - <leader>fg: Opens fzf-lua for live search within file contents (live grep).
 
-- Neo-tree:
-  - <Shift + H>: Toggle hidden files visibility in the file tree.
-
----
-
-Window Resizing
-- Adjust Window Height:
-  - <Ctrl + Shift + Up>: Decrease the height of the current split.
-  - <Ctrl + Shift + Down>: Increase the height of the current split.
-
-- Adjust Window Width:
-  - <Ctrl + Shift + Left>: Decrease the width of the current split.
-  - <Ctrl + Shift + Right>: Increase the width of the current split.
-
----
-
-Buffer Management
-Buffers are like open tabs or files within Neovim.
-- Navigate Buffers:
-  - <Ctrl + Alt + Right>: Go to the next buffer.
-  - <Ctrl + Alt + Left>: Go to the previous buffer.
-
-- Close Current Buffer:
-  - <Ctrl + Alt + Backspace>: Close the currently active buffer.
+- Yazi File Manager:
+  - <C-n>: Opens Yazi inside Neovim.
+  - <leader>r: Resumes the last Yazi session.
 
 ---
 
@@ -59,23 +39,29 @@ These shortcuts assist with code editing and navigation, especially useful for d
   - <leader>ca: Opens a list of suggested actions for the selected code (like quick fixes or refactoring options).
 
 - Format Code:
-  - <leader>gf: Formats the current file for cleaner, standardized code structure.
+  - <leader>gf: Formats the current file for cleaner, standardized code structure using null-ls.
+
+- Diagnostic Float:
+  - <leader>ee: Open line diagnostic float window.
 
 ---
 
 Tips for Beginners
 - Leader Key: <leader> is Space, so <leader>ca means pressing Space followed by ca.
-- Experiment: Try each of these keybindings to get a feel for their functionality.
-- Telescope Search: Use <C-p> or <leader>fg to quickly find files or content within them.
+- FZF Search: Use <C-p> or <leader>fg to quickly find files or content within them.
 
 ---
-Git
-- We use git signs for checking the changes in our git work, use <leader>gp for checking preview_hunk
-- We can use git commands with neovim just enter :Git <commands> we use vim fugitive for this.
 
--- 
+Git
+- We use gitsigns for checking changes in our git work.
+- We can run git commands with Neovim using :Git <commands> (vim-fugitive).
+
+---
+
 Autocompletion
-- This has tabnine and co pilot for completion, completion is 30 days trial only
+- This has GitHub Copilot for completion.
+
+---
 
 TMUX GUIDE:
 

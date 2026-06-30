@@ -1,13 +1,11 @@
--- Define a global toggle variable
 local autocompletion_enabled = false
 
--- Define a function to toggle autocompletion and Copilot
 _G.toggle_autocompletion = function()
   autocompletion_enabled = not autocompletion_enabled
   if autocompletion_enabled then
-    vim.cmd("Copilot enable")  -- Enable Copilot
+    vim.cmd("Copilot enable")
   else
-    vim.cmd("Copilot disable") -- Disable Copilot
+    vim.cmd("Copilot disable")
   end
   print("Autocompletion " .. (autocompletion_enabled and "Enabled" or "Disabled"))
 end
@@ -17,29 +15,6 @@ vim.defer_fn(function()
 end, 100)
 
 return {
-  -- {
-  --   "olimorris/codecompanion.nvim",
-  --   opts = {},
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-treesitter/nvim-treesitter",
-  --   },
-  --   config = function()
-  --     require("codecompanion").setup({
-  --       strategies = {
-  --         chat = {
-  --           adapater = "copilot",
-  --         },
-  --         inline = {
-  --           adapter = "copilot",
-  --         },
-  --         agent = {
-  --           adapter = "copilot",
-  --         },
-  --       },
-  --     })
-  --   end,
-  -- },
   {
     'hrsh7th/cmp-nvim-lsp'
   },
@@ -53,11 +28,6 @@ return {
       'rafamadriz/friendly-snippets',
     }
   },
-  -- {
-  --   'tzachar/cmp-tabnine',
-  --   build = './install.sh',
-  --   dependencies = 'hrsh7th/nvim-cmp',
-  -- },
   {
     'hrsh7th/nvim-cmp',
     config = function()
@@ -66,7 +36,7 @@ return {
 
       cmp.setup({
         enabled = function()
-          return autocompletion_enabled -- Enable based on the toggle
+          return autocompletion_enabled
         end,
         snippet = {
           expand = function(args)
@@ -89,9 +59,9 @@ return {
           { name = 'luasnip' },
           { name = 'nvim_lua' },
           { name = 'buffer' },
-          { name = 'cmp_tabnine' },
         })
       })
     end,
   }
+}
 }

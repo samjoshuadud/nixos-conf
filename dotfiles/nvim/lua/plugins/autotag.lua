@@ -19,16 +19,5 @@ return {
       cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
     end,
   },
-  -- {
-  --   'romgrk/barbar.nvim',
-  --   config = function()
-  --     require('barbar').setup {
-  --       -- Add your Barbar configuration options here
-  --     }
-  --   end,
-  -- },
-  {
-    'lukas-reineke/indent-blankline.nvim',
-  },
 }
 
