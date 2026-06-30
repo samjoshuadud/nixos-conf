@@ -1,7 +1,7 @@
 return {
   { 
     'windwp/nvim-ts-autotag', 
-    requires = { 'nvim-treesitter/nvim-treesitter' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       require('nvim-treesitter.config').setup {
         autotag = {
@@ -12,6 +12,7 @@ return {
   },
   {
     'windwp/nvim-autopairs',
+    dependencies = { 'hrsh7th/nvim-cmp' },
     config = function()
       require('nvim-autopairs').setup {}
       local cmp_autopairs = require('nvim-autopairs.completion.cmp')

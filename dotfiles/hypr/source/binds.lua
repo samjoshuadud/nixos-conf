@@ -1,4 +1,4 @@
-local browser = "zen"
+local browser = "zen-beta"
 
 -- Widgets and System
 hl.bind("SUPER + O", hl.dsp.exec_cmd("waylandar-dashboard"))
