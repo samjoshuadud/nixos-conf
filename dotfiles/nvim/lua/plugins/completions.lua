@@ -3,15 +3,15 @@ local autocompletion_enabled = false
 _G.toggle_autocompletion = function()
   autocompletion_enabled = not autocompletion_enabled
   if autocompletion_enabled then
-    vim.cmd("Copilot enable")
+    pcall(vim.cmd, "Copilot enable")
   else
-    vim.cmd("Copilot disable")
+    pcall(vim.cmd, "Copilot disable")
   end
   print("Autocompletion " .. (autocompletion_enabled and "Enabled" or "Disabled"))
 end
 
 vim.defer_fn(function()
-  vim.cmd("Copilot disable")
+  pcall(vim.cmd, "Copilot disable")
 end, 100)
 
 return {
