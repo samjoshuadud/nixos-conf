@@ -8,6 +8,7 @@ in
     ./modules/theme.nix
     ./modules/programs.nix
     ./modules/tmux.nix
+    ./modules/fish.nix
     ./modules/session.nix
   ];
 
@@ -18,7 +19,6 @@ in
   xdg.configFile = {
     "hypr".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/hypr";
     "nvim".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/nvim";
-    "fish".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fish";
     "cava".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/cava";
     "fastfetch".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fastfetch";
     "btop".source     = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/btop";

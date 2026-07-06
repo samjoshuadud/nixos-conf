@@ -7,7 +7,6 @@
     fastfetch
     swaylock-effects
     tmuxifier
-    zoxide
     fzf
     yazi
     bat
