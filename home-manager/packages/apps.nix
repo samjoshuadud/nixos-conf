@@ -7,7 +7,6 @@
     fastfetch
     swaylock-effects
     starship
-    tmux
     tmuxifier
     zoxide
     fzf

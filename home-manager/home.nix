@@ -7,6 +7,7 @@ in
     ./packages/default.nix
     ./modules/theme.nix
     ./modules/programs.nix
+    ./modules/tmux.nix
     ./modules/session.nix
   ];
 
@@ -18,7 +19,6 @@ in
     "hypr".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/hypr";
     "nvim".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/nvim";
     "fish".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fish";
-    "tmux".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/tmux";
     "cava".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/cava";
     "fastfetch".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fastfetch";
     "starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/starship.toml";

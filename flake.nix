@@ -33,6 +33,7 @@
         home-manager.nixosModules.home-manager  # ← fix here
         {
           home-manager.useGlobalPkgs = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.extraSpecialArgs = { 
             zenBrowser = zen-browser; 
             antigravityNix = antigravity-nix;
