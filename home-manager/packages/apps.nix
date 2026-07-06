@@ -1,7 +1,6 @@
 { pkgs, zenBrowser, antigravityNix, Waylandar, ... }:  # ← add these
 {
   home.packages = with pkgs; [
-    btop
     htop
     cava
     fastfetch

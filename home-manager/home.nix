@@ -21,7 +21,6 @@ in
     "nvim".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/nvim";
     "cava".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/cava";
     "fastfetch".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fastfetch";
-    "btop".source     = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/btop";
 
   };
 
