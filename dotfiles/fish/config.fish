@@ -13,10 +13,12 @@ set -x PATH $GOPATH/bin $PATH
 
 set -x NIXPKGS_ALLOW_UNFREE 1
 
-fnm env --use-on-cd | source
+# fnm env --use-on-cd | source
 
 pokemon-colorscripts --no-title --random --shiny
 
 any-nix-shell fish --info-right | source
 
 direnv hook fish | source
+
+status --is-interactive; and tmuxifier init - fish | source
