@@ -6,7 +6,6 @@
     cava
     fastfetch
     swaylock-effects
-    starship
     tmuxifier
     zoxide
     fzf

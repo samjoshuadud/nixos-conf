@@ -21,7 +21,6 @@ in
     "fish".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fish";
     "cava".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/cava";
     "fastfetch".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fastfetch";
-    "starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/starship.toml";
     "btop".source     = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/btop";
 
   };

@@ -20,4 +20,61 @@
     enable = true;
     nix-direnv.enable = true;
   };
+
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = false;
+      palette = "default";
+      format = "[╭](fg:separator)$status$directory$git_branch$git_status$cmd_duration$time$line_break[╰](fg:separator)$character";
+
+      palettes.default = {
+        prompt_ok = "green";
+        prompt_err = "red";
+        icon = "bright-black";
+        separator = "bright-black";
+        directory = "red";
+        duration = "yellow";
+        git_branch = "cyan";
+        git_status = "cyan";
+      };
+
+      character = {
+        success_symbol = "[❯](fg:prompt_ok)";
+        error_symbol = "[❯](fg:prompt_err)";
+      };
+
+      status = {
+        format = "[─](fg:separator)[ $status](fg:red)";
+        pipestatus = true;
+        pipestatus_separator = "|";
+        pipestatus_format = "[─](fg:separator)[ $pipestatus](fg:red)";
+        disabled = false;
+      };
+
+      directory = {
+        format = "[─](fg:separator)[ $path](fg:directory bold)";
+        truncate_to_repo = false;
+        truncation_length = 0;
+      };
+
+      git_branch = {
+        format = "[─](fg:separator)[ $branch](fg:git_branch bold)";
+      };
+
+      git_status = {
+        format = "[ $all_status$ahead_behind](fg:git_status)";
+      };
+
+      cmd_duration = {
+        format = "[─](fg:separator)[󱐋 $duration](fg:duration)";
+        min_time = 1000;
+      };
+
+      time = {
+        format = "[─](fg:separator)[󰥔 $time](fg:duration bold)";
+        disabled = true;
+      };
+    };
+  };
 }
