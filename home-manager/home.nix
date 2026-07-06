@@ -19,9 +19,6 @@ in
   xdg.configFile = {
     "hypr".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/hypr";
     "nvim".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/nvim";
-    "cava".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/cava";
-    "fastfetch".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fastfetch";
-
   };
 
   programs.home-manager.enable = true;

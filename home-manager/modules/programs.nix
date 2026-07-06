@@ -158,4 +158,151 @@
 
   # Link custom btop themes folder
   xdg.configFile."btop/themes".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/btop/themes";
+
+  programs.cava = {
+    enable = true;
+    settings = {
+      general = {
+        bar_width = 1;
+        bar_spacing = 1;
+      };
+      input = {
+        method = "pulse";
+        source = "auto";
+      };
+      output = {
+        method = "ncurses";
+      };
+      color = {
+        foreground = "red";
+        gradient = 0;
+        gradient_color_1 = "'#7daea3'";
+        gradient_color_2 = "'#a9b665'";
+        gradient_color_3 = "'#d4a356'";
+        gradient_color_4 = "'#d8a657'";
+        gradient_color_5 = "'#e78a4e'";
+        gradient_color_6 = "'#de854c'";
+        gradient_color_7 = "'#e96c5f'";
+        gradient_color_8 = "'#ea6962'";
+      };
+    };
+  };
+
+  # Link custom cava themes and shaders
+  xdg.configFile."cava/shaders".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/cava/shaders";
+  xdg.configFile."cava/themes".source  = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/cava/themes";
+
+  programs.fastfetch = {
+    enable = true;
+    settings = {
+      "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
+      logo = {
+        source = "$(find \"\${XDG_CONFIG_HOME:-\$HOME/.config}/fastfetch/pngs/\" -name \"*.png\" | shuf -n 1)";
+        height = 18;
+      };
+      display = {
+        separator = " : ";
+      };
+      modules = [
+        {
+          type = "custom";
+          format = "\u001b[31m    コンピューター";
+        }
+        {
+          type = "custom";
+          format = "┌──────────────────────────────────────────┐";
+        }
+        {
+          type = "os";
+          key = "   OS";
+          keyColor = "red";
+        }
+        {
+          type = "kernel";
+          key = "   Kernel";
+          keyColor = "red";
+        }
+        {
+          type = "packages";
+          key = "   Packages";
+          keyColor = "green";
+        }
+        {
+          type = "display";
+          key = "   Display";
+          keyColor = "green";
+        }
+        {
+          type = "wm";
+          key = "   WM";
+          keyColor = "yellow";
+        }
+        {
+          type = "terminal";
+          key = "   Terminal";
+          keyColor = "yellow";
+        }
+        {
+          type = "custom";
+          format = "└──────────────────────────────────────────┘";
+        }
+        "break"
+        {
+          type = "title";
+          key = "  ";
+        }
+        {
+          type = "custom";
+          format = "┌──────────────────────────────────────────┐";
+        }
+        {
+          type = "cpu";
+          format = "{1}";
+          key = "   CPU";
+          keyColor = "blue";
+        }
+        {
+          type = "gpu";
+          format = "{2}";
+          key = "   GPU";
+          keyColor = "blue";
+        }
+        {
+          type = "gpu";
+          format = "{3}";
+          key = "   GPU Driver";
+          keyColor = "magenta";
+        }
+        {
+          type = "memory";
+          key = "  ﬙ Memory";
+          keyColor = "magenta";
+        }
+        {
+          type = "command";
+          key = "  󱦟 OS Age ";
+          keyColor = "31";
+          text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
+        }
+        {
+          type = "uptime";
+          key = "  󱫐 Uptime ";
+          keyColor = "red";
+        }
+        {
+          type = "custom";
+          format = "└──────────────────────────────────────────┘";
+        }
+        {
+          type = "colors";
+          paddingLeft = 2;
+          symbol = "circle";
+        }
+        "break"
+      ];
+    };
+  };
+
+  # Link custom fastfetch logo pngs
+  xdg.configFile."fastfetch/pngs".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/fastfetch/pngs";
 }

@@ -2,8 +2,6 @@
 {
   home.packages = with pkgs; [
     htop
-    cava
-    fastfetch
     swaylock-effects
     tmuxifier
     fzf
