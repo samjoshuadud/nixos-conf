@@ -5,7 +5,6 @@
     wget
     git
     kitty
-    neovim
     fish
     wakatime-cli
     trash-cli
