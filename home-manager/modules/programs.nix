@@ -303,6 +303,16 @@
     };
   };
 
+  programs.yazi = {
+    enable = true;
+    settings = {
+      opener = {
+        edit = [
+          { run = ''nvim "$@"''; block = true; }
+        ];
+      };
+    };
+  };
   # Link custom fastfetch logo pngs
   xdg.configFile."fastfetch/pngs".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/fastfetch/pngs";
 }

@@ -5,7 +5,6 @@
     swaylock-effects
     tmuxifier
     fzf
-    yazi
     bat
     ripgrep
     fd
