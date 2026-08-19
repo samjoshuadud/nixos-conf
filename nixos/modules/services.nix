@@ -4,6 +4,16 @@
   services.upower.enable = true;
   services.spice-vdagentd.enable = true;
 
+  # Steps the clock instead of slewing, so a big Windows RTC offset corrects
+  # immediately instead of taking days. (RTC sync itself is handled by the
+  # NixOS chrony module already — rtcsync in extraConfig conflicts with it.)
+  services.chrony = {
+    enable = true;
+    extraConfig = ''
+      makestep 1.0 -1
+    '';
+  };
+
   services.logind = {
     powerKey = "suspend";
     powerKeyLongPress = "poweroff";
@@ -37,7 +47,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %A, %B %d, %Y' --greeting 'Welcome to NixOS' --greet-align center --width 70 --window-padding 2 --container-padding 2 --prompt-padding 1 --asterisks --asterisks-char '•' --remember --remember-user-session --cmd start-hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %A, %B %d, %Y' --greeting 'Welcome to NixOS' --greet-align center --width 70 --window-padding 2 --container-padding 2 --prompt-padding 1 --asterisks --asterisks-char '•' --remember --remember-user-session --cmd start-hyprland";
         user = "greeter";
       };
     };

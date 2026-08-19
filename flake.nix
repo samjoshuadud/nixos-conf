@@ -19,13 +19,18 @@
     nixs.url = "github:samjoshuadud/nixs";
     ambxst.url = "github:samjoshuadud/Ambxst";
     waylandar.url = "github:samjoshuadud/waylandar";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, zen-browser, antigravity-nix, any-nix-shell, nixs, ambxst, waylandar, ... }: {
+  outputs = { self, nixpkgs, home-manager, zen-browser, antigravity-nix, any-nix-shell, nixs, ambxst, waylandar, lanzaboote, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ambxst.nixosModules.default
+        lanzaboote.nixosModules.lanzaboote
         {
         nixpkgs.config.allowUnfree = true;
         }
