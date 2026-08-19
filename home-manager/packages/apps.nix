@@ -18,5 +18,9 @@
     Waylandar.packages.x86_64-linux.default
     wf-recorder
     swayosd
+    ncdu
+    transmission_4
+
+    virt-viewer
   ];
 }

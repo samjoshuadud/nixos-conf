@@ -23,6 +23,7 @@
 
   programs.starship = {
     enable = true;
+    enableFishIntegration = false;
     settings = {
       add_newline = false;
       palette = "default";

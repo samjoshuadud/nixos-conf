@@ -136,14 +136,19 @@
         pokemon-colorscripts --no-title --random --shiny
       end
 
-      # any-nix-shell integration
-      if type -q any-nix-shell
-        any-nix-shell fish --info-right | source
-      end
-
       # tmuxifier integration
       if type -q tmuxifier
         tmuxifier init - fish | source
+      end
+
+      # starship integration (manual order so any-nix-shell can override right prompt)
+      if type -q starship
+        starship init fish | source
+      end
+
+      # any-nix-shell integration
+      if type -q any-nix-shell
+        any-nix-shell fish --info-right | source
       end
     '';
   };
