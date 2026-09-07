@@ -27,6 +27,6 @@
 
     gnome-keyring
     libsecret
-    greetd.tuigreet
+    tuigreet
   ];
 }

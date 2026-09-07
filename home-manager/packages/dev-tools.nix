@@ -30,5 +30,10 @@
 
     vscode
     virt-manager
+
+    claude-code
+
+
+    vinegar
   ];
 }

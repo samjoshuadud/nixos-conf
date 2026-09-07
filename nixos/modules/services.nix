@@ -22,6 +22,8 @@
 
   virtualisation.docker.enable = true;
 
+  services.flatpak.enable = true;  # for Sober (Roblox Player), installed via `flatpak install`
+
   xdg.portal = {
     enable = true;
     wlr.enable = true;
