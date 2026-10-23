@@ -17,8 +17,14 @@
       flake = false;
     };
     nixs.url = "github:samjoshuadud/nixs";
-    ambxst.url = "github:samjoshuadud/Ambxst";
-    waylandar.url = "github:samjoshuadud/waylandar";
+    ambxst = {
+      url = "github:samjoshuadud/Ambxst";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    waylandar = {
+      url = "github:samjoshuadud/waylandar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.1.0";
       inputs.nixpkgs.follows = "nixpkgs";
