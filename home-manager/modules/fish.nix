@@ -80,6 +80,7 @@
       fish_add_path "$ANDROID_HOME/tools"
       fish_add_path "$ANDROID_HOME/tools/bin"
       fish_add_path "$GOPATH/bin"
+      fish_add_path "$HOME/.cargo/bin"
 
       # XDG directory helper variables (updated via xdg-user-dirs)
       if type -q xdg-user-dir
