@@ -22,5 +22,7 @@
     transmission_4
 
     virt-viewer
+
+    telegram-desktop
   ];
 }
