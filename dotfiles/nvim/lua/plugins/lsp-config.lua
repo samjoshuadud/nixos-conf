@@ -36,6 +36,17 @@ return {
       })
       vim.lsp.enable('nil_ls')
 
+      vim.lsp.config('rust_analyzer', {
+        capabilities = capabilities,
+        settings = {
+          ["rust-analyzer"] = {
+            check = { command = "clippy" },
+            cargo = { allFeatures = true },
+          },
+        },
+      })
+      vim.lsp.enable('rust_analyzer')
+
       local servers = { 'gopls', 'bashls', 'dockerls', 'csharp_ls', 'html', 'cssls', 'jsonls', 'ts_ls', 'basedpyright' }
       for _, server in ipairs(servers) do
         vim.lsp.config(server, { capabilities = capabilities })
