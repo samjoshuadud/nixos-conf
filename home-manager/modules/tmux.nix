@@ -74,6 +74,10 @@
       # Yazi passthrough
       set -g allow-passthrough on
 
+      # Without this tmux parses sixel images but draws a "SIXEL IMAGE (WxH)"
+      # placeholder, because kitty's terminfo never advertises sixel.
+      set -as terminal-features ',xterm-kitty:sixel'
+
       set -ga update-environment TERM
       set -ga update-environment TERM_PROGRAM
 
